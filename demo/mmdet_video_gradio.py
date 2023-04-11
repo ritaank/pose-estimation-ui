@@ -257,8 +257,14 @@ class AppModel:
             size = (video.width, video.height)
             fourcc = cv2.VideoWriter_fourcc(*'mp4v')
             timestr = time.strftime("%Y%m%d-%H%M%S")
-            out_file_name = f'vis_{os.path.basename(video_path)}_{timestr}'
+
+
+            out_file_name = f'vis_{timestr}_{os.path.basename(video_path)}'
             out_loc = os.path.join(out_video_root, out_file_name)
+            print(f"we will be saving to {out_loc}")
+
+            # out_file_name = f'vis_{os.path.basename(video_path)}_{timestr}'
+            # out_loc = os.path.join(out_video_root, out_file_name)
             videoWriter = cv2.VideoWriter(out_loc, fourcc,
                 fps, size)
 
